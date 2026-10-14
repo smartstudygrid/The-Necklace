@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verbs — Grammar Exam Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213d;--gold:#c9a24a;--bg:#faf6ec;--card:#fff;--ink:#1f2937;--mut:#6b7280;--line:#e6dcc3;--hd:#14213d;--ok:#1b7f4b;--bad:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#172038;--ink:#e8e9ee;--mut:#9aa3b5;--line:#2a3550;--hd:#e8d9a8;--ok:#4cc38a;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#172038;--ink:#e8e9ee;--mut:#9aa3b5;--line:#2a3550;--hd:#e8d9a8;--ok:#4cc38a;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif;line-height:1.55}
+.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.6rem;margin:0}
+.top small{color:#e8d9a8;letter-spacing:.07em;text-transform:uppercase;font-size:.7rem;display:block}
+#timer{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:600}
+main{max-width:820px;margin:0 auto;padding:22px 16px 48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 2px 8px rgba(20,33,61,.07);margin-bottom:16px}
+h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;color:var(--hd);font-size:1.8rem;margin:0 0 8px}
+h3{color:var(--hd);margin:0 0 8px;font-size:1.05rem}
+label{display:block;font-size:.8rem;font-weight:600;color:var(--mut);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.05em}
+input,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--gold)}
+textarea{min-height:170px;resize:vertical}
+.btn{background:var(--navy);color:var(--gold);border:0;border-radius:9px;padding:11px 22px;font:600 .95rem Inter,sans-serif;cursor:pointer}
+.btn.alt{background:transparent;color:var(--hd);border:1px solid var(--gold)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;justify-content:space-between;margin-top:18px;flex-wrap:wrap}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--gold)}
+.opt.sel{border-color:var(--gold);background:var(--navy);color:#fff}
+.opt b{color:var(--gold);margin-right:8px}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--gold)}
+.dots{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.dots button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 .75rem Inter;cursor:pointer}
+.dots .done{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.dots .cur{outline:2px solid var(--hd)}
+.cat{font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:var(--navy);color:var(--gold);padding:3px 10px;border-radius:99px}
+.q{font-family:'Instrument Serif',Georgia,serif;font-size:1.4rem;color:var(--hd);margin:12px 0 4px;line-height:1.35}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.ring{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--p)*1%),var(--line) 0)}
+.ring span{width:100px;height:100px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-family:'Instrument Serif',Georgia,serif;font-size:2rem;color:var(--hd)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;font-size:.85rem;color:var(--mut)}
+.meta b{display:block;color:var(--ink)}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}
+.rev{border-left:4px solid var(--line);padding:2px 0 2px 14px;margin:14px 0}
+.rev.r{border-color:var(--ok)}.rev.w{border-color:var(--bad)}
+.rev p{margin:3px 0;font-size:.92rem}
+.model{background:var(--bg);border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;font-size:.92rem}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;margin:7px 0;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink)}
+.chk input{width:auto;margin-top:4px}
+footer{text-align:center;color:var(--mut);font-size:.75rem;padding:16px}
+@media(max-width:560px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+@media print{.top .btn,.noprint{display:none!important}body{background:#fff;color:#000}.card{box-shadow:none;break-inside:avoid}.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="top"><div><small>Al-Rowad International Schools · English Department</small><h1>Verbs · Grammar Exam Practice</h1></div><div id="timer"></div></div>
+<main id="app"></main>
+<footer>Designed by Amanullah Khan, Head of English Dept</footer>
+<script>
+const Q=[
+{c:'Transitive & Intransitive',q:'Which sentence contains a transitive verb?',o:['The students read the poem aloud.','The students laughed loudly.','The sun rose at six.','She slept deeply.'],e:'"Read" is transitive because it acts on a direct object, "the poem". The other verbs have no object.'},
+{c:'Transitive & Intransitive',q:'In "The bell rang at noon," the verb "rang" is:',o:['Intransitive: it has no direct object','Transitive: its direct object is "noon"','Linking: it connects the subject to a description','Auxiliary: it helps another verb'],e:'"At noon" tells when (an adverbial phrase), not what was rung. With no direct object, the verb is intransitive.'},
+{c:'Transitive & Intransitive',q:'Identify the direct object: "Mathilde borrowed a necklace from her friend."',o:['necklace','Mathilde','friend','borrowed'],e:'Ask "Mathilde borrowed what?" The answer is "a necklace". "From her friend" is a prepositional phrase.'},
+{c:'Transitive & Intransitive',q:'In which pair is the same verb transitive in the first sentence and intransitive in the second?',o:['He opened the door. / The door opened.','She arrived early. / She arrived late.','They are happy. / They look happy.','I will go. / I can go.'],e:'"Opened the door" has a direct object (transitive). In "The door opened", nothing receives the action (intransitive).'},
+{c:'Transitive & Intransitive',q:'Which sentence is incomplete because a transitive verb has no object?',o:['She bought.','She smiled.','She is tired.','She fell.'],e:'"Bought" needs an answer to "bought what?". "Smiled" and "fell" are intransitive, and "is" is a linking verb.'},
+{c:'Transitive & Intransitive',q:'Which test shows that a verb is transitive?',o:['Ask "what?" or "whom?" after the verb and find an answer','Check whether the verb ends in -ed','Check whether the sentence has an adjective','Replace the verb with "is" and see if it still works'],e:'A transitive verb has a direct object that answers "what?" or "whom?". The "is" test is for linking verbs.'},
+{c:'Verb Phrases',q:'What is a verb phrase?',o:['A main verb together with one or more helping verbs','A verb followed by its object','Any group of words containing a noun and a verb','A verb and the adverb that describes it'],e:'A verb phrase is the main verb plus its helping verb(s), such as "should have gone".'},
+{c:'Verb Phrases',q:'Identify the verb phrase: "Mathilde has been waiting for hours."',o:['has been waiting','waiting for hours','has been','been waiting for'],e:'"Has" and "been" are helping verbs and "waiting" is the main verb. "For hours" is not part of the verb phrase.'},
+{c:'Verb Phrases',q:'Identify the verb phrase: "She will not forget the ball."',o:['will forget','will not forget','not forget','forget'],e:'"Not" is an adverb, not part of the verb phrase. The phrase is "will forget", interrupted by "not".'},
+{c:'Verb Phrases',q:'Identify the verb phrase: "Did you take his number?"',o:['Did take','Did you take','you take','take his number'],e:'In questions the helping verb moves in front of the subject. "Did" + "take" form the phrase, split by "you".'},
+{c:'Linking Verbs',q:'Which sentence contains a linking verb?',o:['The soup smells delicious.','The cook smelled the soup.','He ran quickly.','She wrote a letter.'],e:'In "smells delicious", "smells" links the subject to a description (delicious). In "smelled the soup", it is an action with an object.'},
+{c:'Linking Verbs',q:'Which of these verbs can function as a linking verb?',o:['seem','throw','carry','jump'],e:'"Seem" links the subject to a complement ("She seems happy"). The others are action verbs.'},
+{c:'Linking Verbs',q:'In "Mathilde became poor," what is the word "poor"?',o:['A subject complement describing Mathilde','A direct object of "became"','An adverb modifying "became"','A helping verb'],e:'"Became" links "Mathilde" to "poor". The adjective describes the subject and is called a subject complement (predicate adjective).'},
+{c:'Linking Verbs',q:'In which sentence is "grew" a linking verb?',o:['The crowd grew restless.','The tree grew in the garden.','The farmer grew wheat.','The children grew tomatoes.'],e:'"Grew restless" means "became restless", so "grew" links the subject to a description. In the others it is an action verb.'},
+{c:'Linking Verbs',q:'How can you check whether a verb is linking?',o:['Replace it with "is/are/was" and see if the sentence still makes sense','See whether it ends in -ing','See whether there is a direct object','See whether it follows a helping verb'],e:'If "is/was" works in its place ("The crowd was restless"), the verb is acting as a linking verb.'},
+{c:'Helping Verbs',q:'Which group lists the primary auxiliary (helping) verbs?',o:['be, do, have','can, may, must','run, walk, jump','is, seem, become'],e:'Be, do and have (with all their forms) are the primary auxiliaries. Can, may and must are modal auxiliaries.'},
+{c:'Helping Verbs',q:'Identify the helping verb: "The Loisels had borrowed money."',o:['had','borrowed','money','Loisels'],e:'"Borrowed" is the main verb. "Had" helps it form the past perfect tense.'},
+{c:'Helping Verbs',q:'Which sentence uses a modal auxiliary verb?',o:['You should return the necklace.','You returned the necklace.','You are returning the necklace.','You have returned the necklace.'],e:'"Should" is a modal verb, showing advice or obligation. "Are" and "have" are not modals.'},
+{c:'Helping Verbs',q:'In "They were searching everywhere," what does the helping verb "were" do?',o:['Helps form the past continuous tense','Links the subject to a complement','Shows possibility','Turns the verb into a noun'],e:'"Were" + "searching" (-ing) forms the past continuous, showing an action in progress in the past.'},
+{c:'Helping Verbs',q:'In which sentence is "have" a main verb, not a helping verb?',o:['They have a small flat.','They have lost the necklace.','She has been crying.','We have finished.'],e:'In "have a small flat", "have" means "own" and takes an object. In the others it helps another verb.'}
+];
+const TIPS={'Transitive & Intransitive':'Ask "what?" or "whom?" after the verb. An answer means it is transitive; no answer means intransitive. Many verbs can be both.','Verb Phrases':'Find the main verb, then look just before it for helping verbs. Words like "not" and "never" are adverbs, not part of the verb phrase.','Linking Verbs':'Try swapping the verb for "is". If the sentence still makes sense, it is linking. Look for a subject complement after it.','Helping Verbs':'Learn the lists: be, do, have (primary) and can, could, may, might, must, shall, should, will, would (modals). Check whether another verb follows.'};
+const RUB=[],MODEL='',WQ='';
+const $=s=>document.querySelector(s),app=$('#app'),esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let S={info:{},qs:[],ans:[],i:0,w:'',t0:0,tick:null,rub:[0,0,0,0]};
+const L='ABCD';
+function start(){
+ app.innerHTML=`<div class="card"><h2>Welcome</h2><p>This practice test covers <b>transitive and intransitive verbs, verb phrases, linking verbs and helping (auxiliary) verbs</b>: ${Q.length} multiple-choice questions, 20 marks in total. You will receive a detailed feedback report at the end. Enter your details to begin.</p>
+ <label for="n">Full name *</label><input id="n" autocomplete="name">
+ <label for="c">Class / Section *</label><input id="c" placeholder="e.g. Grade 9-B">
+ <label for="id">Student ID (optional)</label><input id="id">
+ <label for="t">English teacher (optional)</label><input id="t">
+ <p id="err" class="bad"></p><div class="row"><span></span><button class="btn" id="go">Start the quiz</button></div></div>
+ <div class="card"><h3>Instructions</h3><ul><li>Choose one answer for each question. You can move back and change answers.</li><li>Each question is worth one mark. Unanswered questions score zero.</li><li>Answers and explanations appear only in your final report, as in a real exam.</li></ul></div>`;
+ $('#go').onclick=()=>{const n=$('#n').value.trim(),c=$('#c').value.trim();if(!n||!c){$('#err').textContent='Please enter your name and class to begin.';return}
+  S.info={n,c,id:$('#id').value.trim(),t:$('#t').value.trim()};
+  S.qs=Q.map(q=>{const ix=q.o.map((_,k)=>k).sort(()=>Math.random()-.5);return{...q,opts:ix.map(k=>q.o[k]),cor:ix.indexOf(0)}});
+  S.ans=Q.map(()=>-1);S.i=0;S.w='';S.rub=[0,0,0,0];S.t0=Date.now();clearInterval(S.tick);
+  S.tick=setInterval(()=>{const s=Math.floor((Date.now()-S.t0)/1000);$('#timer').textContent='⏱ '+String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);quiz()};
+}
+function dots(){return `<div class="dots">${S.qs.map((_,k)=>`<button class="${S.ans[k]>=0?'done':''} ${k==S.i?'cur':''}" onclick="S.i=${k};quiz()">${k+1}</button>`).join('')}</div>`}
+function quiz(){
+ window.scrollTo(0,0);
+ 
+ const q=S.qs[S.i],done=S.ans.filter(a=>a>=0).length;
+ app.innerHTML=`<div class="card">${dots()}<div class="bar"><i style="width:${done/S.qs.length*100}%"></i></div>
+ <span class="cat">${q.c}</span> <span style="color:var(--mut);font-size:.8rem;margin-left:8px">Question ${S.i+1} of ${S.qs.length} · ${done} answered</span>
+ <div class="q">${esc(q.q)}</div>
+ ${q.opts.map((o,k)=>`<button class="opt ${S.ans[S.i]==k?'sel':''}" onclick="S.ans[S.i]=${k};quiz()"><b>${L[k]}</b>${esc(o)}</button>`).join('')}
+ <div class="row"><button class="btn alt" ${S.i?'':'disabled'} onclick="S.i--;quiz()">← Previous</button><button class="btn" onclick="${S.i==S.qs.length-1?'finish()':'S.i++;quiz()'}">${S.i==S.qs.length-1?'Submit &amp; get report':'Next →'}</button></div></div>`;
+}
+function written(){
+ const un=S.ans.filter(a=>a<0).length;
+ app.innerHTML=`<div class="card">${dots()}<span class="cat">Written response</span><div class="q">${esc(WQ)}</div>
+ <textarea id="w" placeholder="Write your paragraph here...">${esc(S.w)}</textarea><p id="wc" style="color:var(--mut);font-size:.8rem"></p>
+ ${un?`<p class="bad">You have ${un} unanswered multiple-choice question${un>1?'s':''}. Use the numbered buttons to go back.</p>`:''}
+ <div class="row"><button class="btn alt" onclick="S.i--;quiz()">← Previous</button><button class="btn" id="sub">Submit &amp; get my report</button></div></div>`;
+ const w=$('#w'),u=()=>{S.w=w.value;$('#wc').textContent=(w.value.trim()?w.value.trim().split(/\s+/).length:0)+' words'};w.oninput=u;u();
+ $('#sub').onclick=()=>{S.end=Date.now();clearInterval(S.tick);report()};
+}
+function finish(){const un=S.ans.filter(a=>a<0).length;if(un&&!S.warn){S.warn=1;$('.row').insertAdjacentHTML('beforebegin',`<p class="bad">You have ${un} unanswered question${un>1?'s':''}. Use the numbered buttons to go back, or press Submit again to finish.</p>`);return}S.end=Date.now();clearInterval(S.tick);report()}
+function band(p){return p>=90?['Outstanding','Exceptional understanding. You are working at the top of the range.']:p>=80?['Excellent','Strong, secure understanding with only a few gaps to polish.']:p>=70?['Proficient','A solid grasp of the topic. Targeted revision will lift you to the next level.']:p>=55?['Developing','You understand the main ideas, but detail and analysis need strengthening.']:['Needs Support','Revise the definitions and examples for each verb type with your teacher.']}
+function report(){
+ window.scrollTo(0,0);
+ const mc=S.qs.reduce((s,q,k)=>s+(S.ans[k]==q.cor?1:0),0),cats={};
+ S.qs.forEach((q,k)=>{(cats[q.c]=cats[q.c]||{r:0,t:0}).t++;if(S.ans[k]==q.cor)cats[q.c].r++});
+ const secs=Math.round((S.end-S.t0)/1000),tm=Math.floor(secs/60)+' min '+secs%60+' s',d=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+ const pc=mc/S.qs.length*100,strong=Object.keys(cats).filter(k=>cats[k].r/cats[k].t>=.8),weak=Object.keys(cats).filter(k=>cats[k].r/cats[k].t<.6);
+ const wc=S.w.trim()?S.w.trim().split(/\s+/).length:0;
+ app.innerHTML=`<div class="card hero"><div class="ring" id="ring"><span id="tot"></span></div><div><h2>${esc(S.info.n)}</h2><div id="bd"></div></div></div>
+ <div class="card"><div class="meta"><div><b>${esc(S.info.c)}</b>Class</div>${S.info.id?`<div><b>${esc(S.info.id)}</b>Student ID</div>`:''}${S.info.t?`<div><b>${esc(S.info.t)}</b>Teacher</div>`:''}<div><b>${d}</b>Date</div><div><b>${tm}</b>Time taken</div><div><b>${mc} / ${S.qs.length}</b>Multiple choice</div></div></div>
+ <div class="card"><h3>Skills breakdown</h3>${Object.keys(cats).map(k=>{const p=Math.round(cats[k].r/cats[k].t*100);return `<div style="display:flex;justify-content:space-between;font-size:.9rem"><span>${k}</span><span>${cats[k].r}/${cats[k].t} · ${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div>`}).join('')}</div>
+ <div class="card"><h3>Teacher-style feedback</h3><p id="cm"></p>
+ <p><b class="ok">Strengths:</b> ${strong.length?strong.join(', ')+'. Keep using these skills in your writing and speaking.':'Keep practising; your strengths will emerge as you revise.'}</p>
+ <p><b class="bad">Focus areas:</b> ${weak.length?'':'None this time. Challenge yourself with longer analytical answers.'}</p>
+ ${weak.map(k=>`<p style="margin:4px 0"><b>${k}:</b> ${TIPS[k]}</p>`).join('')}
+ <p><b>Next steps:</b> (1) Read every explanation below, especially for questions you missed. (2) Write two example sentences of your own for each focus area. (3) Retake the quiz and aim to beat your score.</p></div>
+  <div class="card"><h3>Question review</h3>${S.qs.map((q,k)=>{const ok=S.ans[k]==q.cor;return `<div class="rev ${ok?'r':'w'}"><p><b>${k+1}. ${esc(q.q)}</b></p><p>Your answer: <span class="${ok?'ok':'bad'}">${S.ans[k]>=0?esc(q.opts[S.ans[k]]):'Not answered'}</span> ${ok?'✓':'✗'}</p>${ok?'':`<p>Correct answer: <span class="ok">${esc(q.opts[q.cor])}</span></p>`}<p style="color:var(--mut)">${esc(q.e)}</p></div>`}).join('')}</div>
+ <div class="row noprint"><button class="btn alt" onclick="start()">Retake (new student / attempt)</button><button class="btn" onclick="window.print()">Print / Save report as PDF</button></div>`;
+ window.upd=()=>{const r=S.rub.reduce((a,b)=>a+b,0),t=mc+r,p=Math.round(t/(S.qs.length)*100),b=band(p);
+  $('#tot').textContent=t+'/'+(S.qs.length);$('#ring').style.setProperty('--p',p);
+  $('#bd').innerHTML=`<div style="font-size:1.3rem;font-weight:600;color:var(--hd)">${b[0]} · ${p}%</div><p style="margin:4px 0 0">${b[1]}</p>`;
+  $('#cm').innerHTML=`Dear ${esc(S.info.n.split(' ')[0])}, you scored <b>${t} out of ${S.qs.length}</b> (${p}%), which places you in the <b>${b[0]}</b> band. ${pc>=80?'Your command of verb grammar is impressive.':pc>=55?'You show a reasonable understanding of verb types, and careful revision will close the remaining gaps.':'Do not be discouraged: this report shows exactly where to focus your revision.'} `;
+  $('#wf').innerHTML=`Written task: <b>${r} / 4</b>. Tick honestly; this updates your total score above.`};
+ upd();
+}
+start();
+</script>
+</body>
+</html>
